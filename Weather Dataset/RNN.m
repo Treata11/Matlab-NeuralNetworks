@@ -1,5 +1,5 @@
 clear
-clc 
+clc
 
 % Load the weather dataset
 data = readtable('weather.csv');
@@ -13,10 +13,10 @@ X = normalize(X);
 y = normalize(y);
 
 % Split the data into training and testing sets
-X_train = X(1:500, :);
-y_train = y(1:500);
-X_test = X(501:end, :);
-y_test = y(501:end);
+X_train = X(1:9000, :);
+y_train = y(1:9000);
+X_test = X(9001:end, :);
+y_test = y(9001:end);
 
 % Define the RNN model
 layers = [ ...
@@ -43,6 +43,7 @@ figure;
 plot(y_test);
 hold on;
 plot(predictions);
+xlabel('Time Steps');
+ylabel('Precipitation');
 legend('Actual', 'Predicted');
 title('Actual vs Predicted Precipitation');
-
